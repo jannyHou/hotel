@@ -1555,7 +1555,7 @@ SQLConnector.prototype.discoverDatabaseSchemas = function(options, cb) {
  // Due to the different implementation structure of information_schema across
  // connectors, each connector will have to generate its own query
 SQLConnector.prototype.buildQueryTables = function(options) {
-  throw new Error(g.f('{{buildQueryTables}} must be implemented by the connector'));
+  return '';
 };
 
 /*!
@@ -1566,7 +1566,7 @@ SQLConnector.prototype.buildQueryTables = function(options) {
  // Due to the different implementation structure of information_schema across
  // connectors, each connector will have to generate its own query
 SQLConnector.prototype.buildQueryViews = function(options) {
-  throw new Error(g.f('{{buildQueryViews}} must be implemented by the connector'));
+  return '';
 };
 
 /**
@@ -1614,7 +1614,7 @@ SQLConnector.prototype.discoverModelDefinitions = function(options, cb) {
 // Due to the different implementation structure of information_schema across
 // connectors, each connector will have to generate its own query
 SQLConnector.prototype.buildQueryColumns = function(schema, table) {
-  throw new Error(g.f('{{buildQueryColumns}} must be implemented by the connector'));
+  return '';
 };
 
 /**
@@ -1623,7 +1623,7 @@ SQLConnector.prototype.buildQueryColumns = function(schema, table) {
  * @param {Object} options The options for the connector
  */
 SQLConnector.prototype.buildPropertyType = function(columnDefinition, options) {
-  throw new Error(g.f('{{buildPropertyType}} must be implemented by the connector'));
+  return '';
 };
 
 /*!
@@ -1633,7 +1633,7 @@ SQLConnector.prototype.buildPropertyType = function(columnDefinition, options) {
  * @param cb function, optional
  */
 SQLConnector.prototype.getArgs = function(table, options, cb) {
-  throw new Error(g.f('{{getArgs}} must be implemented by the connector'));
+  return '';
 };
 
 /**
@@ -1646,7 +1646,6 @@ SQLConnector.prototype.discoverModelProperties = function(table, options, cb) {
   var self = this;
   var args = self.getArgs(table, options, cb);
   var schema = args.schema;
-  var connectorName = self.dataSource.connector.name;
 
   table = args.table;
   options = args.options;
@@ -1684,7 +1683,7 @@ SQLConnector.prototype.discoverModelProperties = function(table, options, cb) {
 // Due to the different implementation structure of information_schema across
 // connectors, each connector will have to generate its own query
 SQLConnector.prototype.buildQueryPrimaryKeys = function(schema, table) {
-  throw new Error(g.f('{{buildQueryPrimaryKeys}} must be implemented by the connector'));
+  return '';
 };
 
 /**
@@ -1718,7 +1717,7 @@ SQLConnector.prototype.discoverPrimaryKeys = function(table, options, cb) {
  // Due to the different implementation structure of information_schema across
  // connectors, each connector will have to generate its own query
 SQLConnector.prototype.buildQueryForeignKeys = function(schema, table) {
-  throw new Error(g.f('{{buildQueryForeignKeys}} must be implemented by the connector'));
+  return '';
 };
 
 /**
@@ -1754,8 +1753,7 @@ SQLConnector.prototype.discoverForeignKeys = function(table, options, cb) {
  // Due to the different implementation structure of information_schema across
  // connectors, each connector will have to generate its own query
 SQLConnector.prototype.buildQueryExportedForeignKeys = function(schema, table) {
-  throw new Error(g.f('{{buildQueryExportedForeignKeys}} must be implemented by' +
-  'the connector'));
+  return '';
 };
 
 /**
